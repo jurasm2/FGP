@@ -35,7 +35,7 @@ class Xonu_FGP_Model_Calculation extends Mage_Tax_Model_Calculation
 
                 $customer = Mage::getSingleton('customer/session')->getCustomer();
                 if (($billingAddress = $customer->getDefaultBillingAddress())
-                    && ($shippingAddress = $customer->getDefaultShippingAddress())) {
+                    || ($shippingAddress = $customer->getDefaultShippingAddress())) {
 
                     // use customer addresses as origin if customer is logged in
                     $request = $this->getRateRequest(
